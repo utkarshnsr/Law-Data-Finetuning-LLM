@@ -100,6 +100,7 @@ def main():
   for title, content in list(legalSections.items()):
     content = f"Title: {title}\nContent: {content}\n"
     legalSectionsContent += content
+  #generating content
   llmResponse = generateMistralResponse(legalSectionsContent)
   print(llmResponse)
 
