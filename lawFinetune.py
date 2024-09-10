@@ -69,7 +69,7 @@ def generateMistralResponse(extractedText):
         - A key "instruction" containing the generated question.
         - A key "value" containing the corresponding answer.
 
-      Ensure that every section is covered and no information is drawn from outside the provided text.
+      Ensure that every section is covered and no information is drawn from outside the provided text. Please do not provide any other information other than just the list (no other text).
 
       Example output:
       [
@@ -87,7 +87,7 @@ def generateMistralResponse(extractedText):
 
 
 
-    llm = Ollama(model="mistral")
+    llm = Ollama(model="llama3.1")
     llmResponse = llm.invoke(prompt)
     return llmResponse
     
@@ -96,7 +96,7 @@ def generateMistralResponse(extractedText):
 def main():
   legalSections = {}
   legalSectionsContent = ""
-  getSectionInfo(1,27, legalSections)
+  getSectionInfo(1,5, legalSections)
   for title, content in list(legalSections.items()):
     content = f"Title: {title}\nContent: {content}\n"
     legalSectionsContent += content
